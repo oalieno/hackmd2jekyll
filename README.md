@@ -55,6 +55,7 @@ Your markdown on hackmd should look like this ( title and date is mandatory )
 ---
 title: my_title
 date: 2017-08-31
+tags: my_tag_1 my_tag2
 ...
 ---
 your contents goes here

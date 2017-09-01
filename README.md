@@ -63,6 +63,8 @@ your contents goes here
 ...
 ```
 
+git clone this directory and place it **under your jekyll project folder**
+
 ```
 git clone https://github.com/OAlienO/hackmd2jekyll.git
 python server.py

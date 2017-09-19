@@ -38,7 +38,14 @@ class Server:
         @rtype:  list      
         @return: target list
         """
-        return page.strip().split('\n')
+        targets = []
+        try:
+            _page = page.strip().split('\n')
+            for p in _page:
+                targets.append(p.strip().split("https://hackmd.io/")[1].strip(')'))
+        except:
+            raise MyException("target list format error, please fix it")
+        return targets
 
     @staticmethod
     def extract_header(page):
@@ -62,7 +69,7 @@ class Server:
         # check date format
         date = header["date"]
         if not ( len(date) == 10 and date[4] == date[7] == '-' and date.replace('-','').isdigit() ):
-            raise MyException("date format incorrect, please fix it")
+            raise MyException("date format incorrect, the format should be: [xxx](https://hackmd.io/xxxxxx)")
         # some custom attribute
         header.setdefault("layout", "post")
         return header    
